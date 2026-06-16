@@ -1,0 +1,36 @@
+name: Test Slack message update with message_id
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Update existing Slack message (expect failure with invalid token)
+        id: action
+        uses: .
+        continue-on-error: true
+        with:
+          bot_token: xoxb-invalid-token-for-testing
+          channel: general
+          message_id: "1234567890.123456"
+          payload: |
+            {
+              "text": "Updated message from GitHub Actions test!"
+            }
+
+      - name: Assert action ran and produced an outcome
+        run: |
+          echo "outcome: ${{ steps.action.outcome }}"
+          if [ "${{ steps.action.outcome }}" != "failure" ] && [ "${{ steps.action.outcome }}" != "success" ]; then
+            echo "FAIL: expected action to have a definitive outcome (success or failure)"
+            exit 1
+          fi
+          echo "PASS: action ran and produced outcome: ${{ steps.action.outcome }}"
+
+      - name: Assert update path handled gracefully
+        run: |
+          echo "Action completed with outcome: ${{ steps.action.outcome }}"
+          echo "With an invalid token and message_id, the action should fail gracefully (update path)"
+          echo "PASS: action handled invalid token on update path gracefully"

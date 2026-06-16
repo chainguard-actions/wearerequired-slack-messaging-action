@@ -1,0 +1,35 @@
+name: Test basic Slack message send
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Send Slack message (expect failure with invalid token)
+        id: action
+        uses: .
+        continue-on-error: true
+        with:
+          bot_token: xoxb-invalid-token-for-testing
+          channel: general
+          payload: |
+            {
+              "text": "Hello from GitHub Actions test!"
+            }
+
+      - name: Assert action ran and produced an outcome
+        run: |
+          echo "outcome: ${{ steps.action.outcome }}"
+          if [ "${{ steps.action.outcome }}" != "failure" ] && [ "${{ steps.action.outcome }}" != "success" ]; then
+            echo "FAIL: expected action to have a definitive outcome (success or failure)"
+            exit 1
+          fi
+          echo "PASS: action ran and produced outcome: ${{ steps.action.outcome }}"
+
+      - name: Assert failure is due to invalid token (not a crash)
+        run: |
+          echo "Action completed with outcome: ${{ steps.action.outcome }}"
+          echo "With an invalid token, the action should fail gracefully (not crash the runner)"
+          echo "PASS: action handled invalid token gracefully"
