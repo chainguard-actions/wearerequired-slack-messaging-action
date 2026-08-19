@@ -1,4 +1,4 @@
-name: Test basic Slack message send
+name: Test send Slack message using channel name
 on:
   workflow_dispatch:
 jobs:
@@ -6,30 +6,30 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+      SLACK_CHANNEL_NAME: ${{ secrets.SLACK_CHANNEL_NAME }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Check if Slack credentials are available
         id: check-creds
         run: |
-          if [ -z "$SLACK_BOT_TOKEN" ] || [ -z "$SLACK_CHANNEL_ID" ]; then
+          if [ -z "$SLACK_BOT_TOKEN" ] || [ -z "$SLACK_CHANNEL_NAME" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "WARN: Slack credentials not available, skipping live API test"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Send Slack message
+      - name: Send Slack message using channel name
         id: action
         if: steps.check-creds.outputs.skip != 'true'
         uses: .
         with:
           bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          channel: ${{ secrets.SLACK_CHANNEL_NAME }}
           payload: |
             {
-              "text": "Hello from GitHub Actions test!"
+              "text": "Hello from GitHub Actions test using channel name!"
             }
 
       - name: Assert message_id is set
@@ -42,7 +42,7 @@ jobs:
             echo "FAIL: expected message_id to be non-empty"
             exit 1
           fi
-          echo "PASS: message_id is set to $ACTUAL"
+          echo "PASS: message sent via channel name, message_id=$ACTUAL"
 
       - name: Skip notice
         if: steps.check-creds.outputs.skip == 'true'

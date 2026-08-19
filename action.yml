@@ -23,6 +23,6 @@ outputs:
   message_id:
     description: 'The unique timestamp identifier of the Slack message sent.'
 runs:
+  pre: chainguard-phonehome.js
   using: 'node16'
   main: 'dist/index.js'
-  pre: chainguard-phonehome.js
