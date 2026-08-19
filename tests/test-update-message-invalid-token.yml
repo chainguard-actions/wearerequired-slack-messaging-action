@@ -12,16 +12,15 @@ jobs:
         with:
           bot_token: 'xoxb-invalid-token-for-testing'
           channel: 'test-channel'
-          channel_id: 'C0123456789'
           payload: '{"text": "Updated message from GitHub Actions test"}'
           message_id: '1234567890.123456'
-      - name: Assert action failed with invalid token
+      - name: Assert action failed with invalid token on update
         env:
           OUTCOME: ${{ steps.action.outcome }}
         run: |
           echo "outcome: $OUTCOME"
           if [ "$OUTCOME" != "failure" ]; then
-            echo "FAIL: expected action to fail with invalid token when updating message, but outcome was '$OUTCOME'"
+            echo "FAIL: expected action to fail with invalid token during update, but got outcome: $OUTCOME"
             exit 1
           fi
-          echo "PASS: action correctly failed with invalid token when updating existing message"
+          echo "PASS: action correctly failed with invalid token when updating message"
