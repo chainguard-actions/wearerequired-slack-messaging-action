@@ -1,0 +1,28 @@
+{
+  "name": "@wearerequired/slack-messaging-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Send any messages from GitHub Actions to Slack.",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "ncc build index.js",
+    "lint": "eslint ."
+  },
+  "author": "required gmbh",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "3.0.1",
+    "@slack/web-api": "8.1.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.45.0",
+    "@wearerequired/eslint-config": "7.0.0",
+    "@wordpress/eslint-plugin": "25.10.0",
+    "eslint": "10.11.0",
+    "prettier": "npm:wp-prettier@3.9.6"
+  }
+}
