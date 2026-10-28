@@ -6,13 +6,13 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 ## Versions
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| v2.0.0 | [`v2.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.0) | [`e611654`](https://github.com/wearerequired/slack-messaging-action/commit/e611654072a6c5d89e52263f3f0d4a282fa19dac) |
-| v2.0.1 | [`v2.0.1`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.1) | [`573ad21`](https://github.com/wearerequired/slack-messaging-action/commit/573ad21448fb40d257d293879961902b6fe2f983) |
-| v2.0.2 | [`v2.0.2`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.2) | [`27b8384`](https://github.com/wearerequired/slack-messaging-action/commit/27b8384cb9ffad7232beb8a4ecdfbb47a19efebf) |
-| v3.0.0 | [`v3.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v3.0.0) | [`b8d3416`](https://github.com/wearerequired/slack-messaging-action/commit/b8d341605efb42cb7ca093a88faaffee59176928) |
-| v4.0.0 | [`v4.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v4.0.0) | [`4e11200`](https://github.com/wearerequired/slack-messaging-action/commit/4e112002584ab9c2fb24da13262a138fe0c88afe) |
+| Version | Tag | Upstream commit | Hardening report |
+|---------|-----|-----------------|------------------|
+| v2.0.0 | [`v2.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.0) | [`e611654`](https://github.com/wearerequired/slack-messaging-action/commit/e611654072a6c5d89e52263f3f0d4a282fa19dac) | [`HARDENING.md`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/blob/v2.0.0/HARDENING.md) |
+| v2.0.1 | [`v2.0.1`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.1) | [`573ad21`](https://github.com/wearerequired/slack-messaging-action/commit/573ad21448fb40d257d293879961902b6fe2f983) | [`HARDENING.md`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/blob/v2.0.1/HARDENING.md) |
+| v2.0.2 | [`v2.0.2`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v2.0.2) | [`27b8384`](https://github.com/wearerequired/slack-messaging-action/commit/27b8384cb9ffad7232beb8a4ecdfbb47a19efebf) | [`HARDENING.md`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/blob/v2.0.2/HARDENING.md) |
+| v3.0.0 | [`v3.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v3.0.0) | [`b8d3416`](https://github.com/wearerequired/slack-messaging-action/commit/b8d341605efb42cb7ca093a88faaffee59176928) | [`HARDENING.md`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/blob/v3.0.0/HARDENING.md) |
+| v4.0.0 | [`v4.0.0`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/tree/v4.0.0) | [`4e11200`](https://github.com/wearerequired/slack-messaging-action/commit/4e112002584ab9c2fb24da13262a138fe0c88afe) | [`HARDENING.md`](https://github.com/chainguard-actions/wearerequired-slack-messaging-action/blob/v4.0.0/HARDENING.md) |
 
 ## Privacy
 
